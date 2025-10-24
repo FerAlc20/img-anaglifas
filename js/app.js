@@ -67,14 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const col = document.createElement('div');
         col.className = 'col-lg-3 col-md-4 col-sm-6 gallery-item hidden d-none'; 
-        col.dataset.disparity = img.disparity; // <- Ahora usa '+', '-', 'x'
+        col.dataset.disparity = img.disparity; 
 
         // Determinar la clase de la ETIQUETA
         let tagClass = 'tag-secondary'; // Gris para Nula (x)
         if (img.disparity === '+') tagClass = 'tag-success'; // Verde para Positiva (+)
         if (img.disparity === '-') tagClass = 'tag-danger'; // Rojo para Negativa (-)
 
-        // MODIFICADO: Muestra el símbolo que le diste
+        
         const cardHTML = `
             <div class="card gallery-card h-100" 
                  data-bs-toggle="modal" 
@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
         galleryGrid.appendChild(col);
     });
 
-    // --- 3. Lógica del Modal (Color Púrpura) ---
-    // (Esta sección no necesita cambios)
+    // --- 3. Lógica del Modal  ---
+  
     const imageModal = document.getElementById('imageModal');
     const modalTitle = document.getElementById('modalTitle');
     const imageContainer = document.getElementById('modal-image-container');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- 4. LÓGICA DE FILTROS (Línea Deslizante) ---
-    // (Esta sección no necesita cambios)
+    
     const filterContainer = document.getElementById('filter-container');
     const filterButtons = document.querySelectorAll('.filter-nav-btn');
     const activeLine = document.querySelector('.filter-active-line');
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const filter = button.dataset.filter; // <- Obtiene '+', '-', 'x' del HTML (cuando lo actualices)
+            const filter = button.dataset.filter; 
             
             const oldActiveButton = document.querySelector('.filter-nav-btn.active');
             if (oldActiveButton) {
